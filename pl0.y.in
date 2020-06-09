@@ -1,0 +1,274 @@
+%language "c++"
+%{
+#include <iostream>
+#include <typeinfo>
+#include "lexer.h"
+YYSTYPE* yylval;
+int yylex(YYSTYPE*);
+YYSTYPE result;
+
+#include "pl0_process.h"
+
+%}
+
+%define api.token.prefix {TOK_}
+//%define api.value.type variant
+
+%token
+  div
+  mod
+  and
+  or
+  not
+  to
+  downto
+  with
+  do
+  begin
+  end
+  if
+  then
+  else
+  case
+  of
+  while
+  repeat
+  until
+  for
+  array
+  const
+  procedure
+  var
+  function
+  goto
+  call
+  break
+  SEMI
+  POINTER
+  PLUS
+  MINUS
+  LPAREN
+  RPAREN
+  EQUAL
+  COLON
+  COMMA
+  ASSIGN
+  NOT_EQUAL
+  LT
+  LE
+  GE
+  GT
+  AT
+  LBRACK
+  RBRACK
+  LBRACK2
+  RBRACK2
+  DOT
+  STAR
+  SLASH
+  MOD2
+  AND
+  OR
+  DOTDOT
+  IDENTIFIER
+  NUM_INT
+  NUM_REAL
+  STRING
+  UNKNOWN
+  EOF
+;
+
+%precedence COLON
+%precedence LBRACK LPAREN
+%precedence typename_pointer
+
+%left and or
+%left LE LT GE GT EQUAL NOT_EQUAL
+%left PLUS MINUS
+%left STAR SLASH div MOD2
+%precedence AT
+
+%precedence then
+%precedence else
+
+%%
+
+program: subprogram DOT EOF 
+subprogram: opt_const_decl opt_val_decl opt_proc_decl stmt 
+
+opt_const_decl:  
+  | const const_decl SEMI 
+
+const_decl: IDENTIFIER EQUAL const_literal 
+  | IDENTIFIER EQUAL const_literal COMMA const_decl 
+
+const_literal: NUM_INT 
+  | NUM_REAL 
+  | STRING 
+
+opt_val_decl:  
+  | var_name_decls 
+
+var_name_decls: var_name_decl 
+  | var_name_decl var_name_decls 
+
+var_name_decl: var var_name_list COLON typename SEMI 
+
+var_name_list: IDENTIFIER 
+  | IDENTIFIER COMMA var_name_list 
+
+typename: IDENTIFIER 
+  | POINTER typename %prec typename_pointer 
+  | LPAREN opt_param_decl RPAREN opt_ret 
+  | typename LBRACK NUM_INT DOTDOT NUM_INT RBRACK 
+  | LPAREN typename RPAREN 
+
+opt_ret: 
+  | COLON typename 
+
+opt_proc_decl: 
+  | proc_decls 
+
+proc_decls: proc_decl 
+  | func_decl 
+  | proc_decl proc_decls 
+  | func_decl proc_decls 
+
+func_decl: func_head subprogram 
+
+func_head: function IDENTIFIER LPAREN opt_param_decl RPAREN COLON typename 
+| function IDENTIFIER LPAREN opt_param_decl RPAREN
+
+proc_decl: proc_head subprogram 
+
+proc_head: procedure IDENTIFIER 
+
+opt_param_decl: 
+  | param_decl 
+
+param_decl: IDENTIFIER COLON typename 
+  | COLON typename 
+  | IDENTIFIER COLON typename COMMA param_decl 
+  | COLON typename COMMA param_decl 
+
+stmt: assign_stmt 
+  | cond_stmt 
+  | loop_stmt 
+  | proc_call_stmt 
+  | compl_stmt 
+  | expr_stmt 
+  | empty_stmt 
+  | break_stmt
+
+assign_stmt: expr ASSIGN expr SEMI 
+
+compl_stmt: begin opt_stmts end 
+
+opt_stmts:
+  | stmts
+
+stmts: stmt 
+  | stmt stmts 
+
+expr_stmt: expr SEMI 
+
+expr: simple_expr
+| expr PLUS expr  
+| expr MINUS expr 
+| expr STAR expr  
+| expr SLASH expr 
+| expr div expr
+| expr MOD2 expr  
+| expr and expr 
+| expr or expr 
+| expr EQUAL expr 
+| expr NOT_EQUAL expr 
+| expr LE expr 
+| expr GE expr 
+| expr LT expr 
+| expr GT expr 
+
+simple_expr: naive_expr
+| not simple_expr 
+| POINTER simple_expr 
+| PLUS expr
+| MINUS expr
+| AT expr
+
+naive_expr: atom_expr
+| naive_expr LPAREN opt_param_list RPAREN 
+| naive_expr LBRACK expr RBRACK 
+
+atom_expr: const_literal  
+| LPAREN expr RPAREN 
+| IDENTIFIER 
+
+opt_param_list: 
+| param_list 
+
+param_list: expr 
+| expr COMMA param_list 
+
+cond_stmt: if expr then stmt 
+  | if expr then stmt else stmt 
+
+proc_call_stmt: call IDENTIFIER SEMI 
+
+loop_stmt: while_stmt 
+  | for_stmt 
+  | repeat_stmt
+
+repeat_stmt: repeat opt_stmts until expr SEMI
+
+while_stmt: while expr do stmt 
+
+for_stmt: for IDENTIFIER ASSIGN expr to expr do stmt 
+  | for IDENTIFIER ASSIGN expr downto expr do stmt 
+
+empty_stmt: SEMI 
+
+break_stmt: break SEMI
+  | break NUM_INT SEMI
+
+%%
+
+#include "lex.yy.cc"
+
+int yylex(YYSTYPE* yylval)
+{
+  ::yylval = yylval;
+  static FlexLexer *lexer = new yyFlexLexer;
+  int ret = lexer->yylex();
+  // std::cout << typeid(**yylval).name() << std::endl;
+  return ret;
+}
+
+namespace yy
+{
+  // Report an error to the user.
+  auto parser::error (const std::string& msg) -> void
+  {
+    std::cerr << msg << '\n';
+  }
+}
+
+void naive(YYSTYPE, char*);
+
+int main(int argc, char **argv)
+{
+	try 
+	{
+		yy::parser parse;
+		int ret = parse();
+
+		if (result != nullptr)
+		{
+			// std::cerr << html_header << result->toJSON() << html_footer << std::endl;
+			naive(result, argv[1]);
+		}
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}

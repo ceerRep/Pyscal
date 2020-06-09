@@ -1,0 +1,92 @@
+program: subprogram . EOF
+
+subprogram: opt_const_decl opt_val_decl opt_proc_decl stmt
+
+opt_const_decl: <empty> | CONST const_decl ;
+
+const_decl: identifier = const_literal , {identifier = const_literal}
+
+const_literal: num_int | num_real | string
+
+opt_val_decl: <empty> | var_name_decls
+
+var_name_decls: var_name_decl {var_name_decl}
+
+var_name_decl: VAR var_name_list : typename ;
+
+var_name_list: identifier {, identifier}
+
+typename: identifier | ^ typename | typename [ num_int .. num_int ] | ( typename ) | ( opt_param_decl ) [: typename]
+
+opt_proc_decl: <empty> | proc_decls
+
+proc_decls: (proc_decl|func_decl)  {proc_decl | func_decl}
+
+proc_decl: proc_head subprogram
+
+proc_head: PROCDEURE identifier 
+
+func_decl: func_head subprogram
+
+func_head: FUNCTION identifier ( opt_param_decl ) : typename
+
+opt_param_decl: | param_decl
+
+param_decl: [identifier] : typename {, [identifier] : typename}
+
+stmt: assign_stmt | cond_stmt | loop_stmt | proc_call_stmt | compl_stmt | expr_stmt | empty_stmt
+
+assign_stmt: expr := expr ;
+
+compl_stmt: BEGIN opt_stmts END
+
+opt_stmts: [stmts]
+
+stmts: stmt {stmt}
+
+expr_stmt: expr ;
+
+expr: simple_expr 
+| expr + expr   
+| expr - expr  
+| expr * expr   
+| expr / expr  
+| expr % expr   
+| expr AND expr  
+| expr OR expr  
+| expr = expr  
+| expr <> expr  
+| expr <= expr  
+| expr >= expr  
+| expr < expr 
+| expr > expr 
+
+simple_expr: naive_expr
+| NOT simple_expr
+| ^ simple_expr
+
+naive_expr: atom_expr
+| naive_expr ( param_list ) 
+| naive_expr [ expr ] 
+
+atom_expr: const_literal 
+| ( expr ) 
+| identifier
+
+param_list: [expr {, expr}]
+
+cond_stmt: IF expr THEN stmt 
+  | IF expr THEN stmt ELSE stmt
+
+proc_call_stmt: CALL identifier ;
+
+loop_stmt: while_stmt | for_stmt | repeat_stmt
+
+while_stmt: WHILE expr DO stmt
+
+for_stmt: FOR identifier := num_int TO num_int DO stmt 
+  | FOR identifier := num_int DOWNTO num_int DO stmt
+
+repeat_stmt: REPEAT opt_stmts UNTIL expr ;
+
+empty_stmt: ;

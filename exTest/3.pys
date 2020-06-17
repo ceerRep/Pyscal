@@ -1,0 +1,15 @@
+const a=10;
+var b,c: int;
+procedure p
+	begin
+		c := b+a;
+	end
+begin
+	a := int(read());
+	while b <> 0 do
+		begin 
+			call p;
+			writeln(2*c);
+			b := int(read());
+		end
+end.

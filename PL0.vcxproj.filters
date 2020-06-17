@@ -39,6 +39,9 @@
     <ClCompile Include="instruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lex.yy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ast.h">
@@ -65,5 +68,19 @@
     <ClInclude Include="instruction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pl0.l">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="pl0.y">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="pl0.y.in">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="process.py">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

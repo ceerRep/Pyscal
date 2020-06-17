@@ -1,0 +1,24 @@
+var s1 : string;
+
+function get_iter(a: string): (:int) : string
+	var n: int;
+	function ret(i: int) : string
+		ret := getscr(a, n-1-i);
+	begin
+		n := len(a);
+		get_iter := ret;
+	end
+
+function fill(a: string, func: (:int) : string)
+	var i, n: int;
+	begin
+		n := len(a);
+		for i := 0 to n-1 do
+			setscr(a, i, func(i));
+	end
+
+begin
+	s1 := readln();
+	fill(s1, get_iter(strcpy(s1)));
+	writeln(s1);
+end.

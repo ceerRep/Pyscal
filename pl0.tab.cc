@@ -36,7 +36,7 @@
 
 
 // First part of user prologue.
-#line 2 ".\\pl0.y"
+#line 2 "pl0.y"
 
 #include <iostream>
 #include <typeinfo>
@@ -1251,595 +1251,595 @@ namespace yy {
           switch (yyn)
             {
   case 2:
-#line 98 ".\\pl0.y"
+#line 98 "pl0.y"
                             {/*puts("program: subprogram DOT EOF");*/ yyprocess_program_0("program", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); result = yylhs.value; YYACCEPT;}
 #line 1257 "pl0.tab.cc"
     break;
 
   case 3:
-#line 99 ".\\pl0.y"
+#line 99 "pl0.y"
                                                            {/*puts("subprogram: opt_const_decl opt_val_decl opt_proc_decl stmt");*/ yyprocess_subprogram_0("subprogram", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1263 "pl0.tab.cc"
     break;
 
   case 4:
-#line 101 ".\\pl0.y"
+#line 101 "pl0.y"
                 {/*puts("opt_const_decl: ");*/ yyprocess_opt_const_decl_0("opt_const_decl", yylhs.value, {}); }
 #line 1269 "pl0.tab.cc"
     break;
 
   case 5:
-#line 102 ".\\pl0.y"
+#line 102 "pl0.y"
                         {/*puts("opt_const_decl: const const_decl SEMI");*/ yyprocess_opt_const_decl_1("opt_const_decl", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1275 "pl0.tab.cc"
     break;
 
   case 6:
-#line 104 ".\\pl0.y"
+#line 104 "pl0.y"
                                            {/*puts("const_decl: IDENTIFIER EQUAL const_literal");*/ yyprocess_const_decl_0("const_decl", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1281 "pl0.tab.cc"
     break;
 
   case 7:
-#line 105 ".\\pl0.y"
+#line 105 "pl0.y"
                                                   {/*puts("const_decl: IDENTIFIER EQUAL const_literal COMMA const_decl");*/ yyprocess_const_decl_1("const_decl", yylhs.value, {yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1287 "pl0.tab.cc"
     break;
 
   case 8:
-#line 107 ".\\pl0.y"
+#line 107 "pl0.y"
                        {/*puts("const_literal: NUM_INT");*/ yyprocess_const_literal_0("const_literal", yylhs.value, {yystack_[0].value}); }
 #line 1293 "pl0.tab.cc"
     break;
 
   case 9:
-#line 108 ".\\pl0.y"
+#line 108 "pl0.y"
            {/*puts("const_literal: NUM_REAL");*/ yyprocess_const_literal_1("const_literal", yylhs.value, {yystack_[0].value}); }
 #line 1299 "pl0.tab.cc"
     break;
 
   case 10:
-#line 109 ".\\pl0.y"
+#line 109 "pl0.y"
          {/*puts("const_literal: STRING");*/ yyprocess_const_literal_2("const_literal", yylhs.value, {yystack_[0].value}); }
 #line 1305 "pl0.tab.cc"
     break;
 
   case 11:
-#line 111 ".\\pl0.y"
+#line 111 "pl0.y"
               {/*puts("opt_val_decl: ");*/ yyprocess_opt_val_decl_0("opt_val_decl", yylhs.value, {}); }
 #line 1311 "pl0.tab.cc"
     break;
 
   case 12:
-#line 112 ".\\pl0.y"
+#line 112 "pl0.y"
                  {/*puts("opt_val_decl: var_name_decls");*/ yyprocess_opt_val_decl_1("opt_val_decl", yylhs.value, {yystack_[0].value}); }
 #line 1317 "pl0.tab.cc"
     break;
 
   case 13:
-#line 114 ".\\pl0.y"
+#line 114 "pl0.y"
                               {/*puts("var_name_decls: var_name_decl");*/ yyprocess_var_name_decls_0("var_name_decls", yylhs.value, {yystack_[0].value}); }
 #line 1323 "pl0.tab.cc"
     break;
 
   case 14:
-#line 115 ".\\pl0.y"
+#line 115 "pl0.y"
                                {/*puts("var_name_decls: var_name_decl var_name_decls");*/ yyprocess_var_name_decls_1("var_name_decls", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1329 "pl0.tab.cc"
     break;
 
   case 15:
-#line 117 ".\\pl0.y"
+#line 117 "pl0.y"
                                                      {/*puts("var_name_decl: var var_name_list COLON typename SEMI");*/ yyprocess_var_name_decl_0("var_name_decl", yylhs.value, {yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1335 "pl0.tab.cc"
     break;
 
   case 16:
-#line 119 ".\\pl0.y"
+#line 119 "pl0.y"
                           {/*puts("var_name_list: IDENTIFIER");*/ yyprocess_var_name_list_0("var_name_list", yylhs.value, {yystack_[0].value}); }
 #line 1341 "pl0.tab.cc"
     break;
 
   case 17:
-#line 120 ".\\pl0.y"
+#line 120 "pl0.y"
                                  {/*puts("var_name_list: IDENTIFIER COMMA var_name_list");*/ yyprocess_var_name_list_1("var_name_list", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1347 "pl0.tab.cc"
     break;
 
   case 18:
-#line 122 ".\\pl0.y"
+#line 122 "pl0.y"
                      {/*puts("typename: IDENTIFIER");*/ yyprocess_typename_0("typename", yylhs.value, {yystack_[0].value}); }
 #line 1353 "pl0.tab.cc"
     break;
 
   case 19:
-#line 123 ".\\pl0.y"
+#line 123 "pl0.y"
                                           {/*puts("typename: POINTER typename");*/ yyprocess_typename_1("typename", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1359 "pl0.tab.cc"
     break;
 
   case 20:
-#line 124 ".\\pl0.y"
+#line 124 "pl0.y"
                                        {/*puts("typename: LPAREN opt_param_decl RPAREN opt_ret");*/ yyprocess_typename_2("typename", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1365 "pl0.tab.cc"
     break;
 
   case 21:
-#line 125 ".\\pl0.y"
+#line 125 "pl0.y"
                                                 {/*puts("typename: typename LBRACK NUM_INT DOTDOT NUM_INT RBRACK");*/ yyprocess_typename_3("typename", yylhs.value, {yystack_[5].value, yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1371 "pl0.tab.cc"
     break;
 
   case 22:
-#line 126 ".\\pl0.y"
+#line 126 "pl0.y"
                          {/*puts("typename: LPAREN typename RPAREN");*/ yyprocess_typename_4("typename", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1377 "pl0.tab.cc"
     break;
 
   case 23:
-#line 128 ".\\pl0.y"
+#line 128 "pl0.y"
          {/*puts("opt_ret: ");*/ yyprocess_opt_ret_0("opt_ret", yylhs.value, {}); }
 #line 1383 "pl0.tab.cc"
     break;
 
   case 24:
-#line 129 ".\\pl0.y"
+#line 129 "pl0.y"
                  {/*puts("opt_ret: COLON typename");*/ yyprocess_opt_ret_1("opt_ret", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1389 "pl0.tab.cc"
     break;
 
   case 25:
-#line 131 ".\\pl0.y"
+#line 131 "pl0.y"
                {/*puts("opt_proc_decl: ");*/ yyprocess_opt_proc_decl_0("opt_proc_decl", yylhs.value, {}); }
 #line 1395 "pl0.tab.cc"
     break;
 
   case 26:
-#line 132 ".\\pl0.y"
+#line 132 "pl0.y"
              {/*puts("opt_proc_decl: proc_decls");*/ yyprocess_opt_proc_decl_1("opt_proc_decl", yylhs.value, {yystack_[0].value}); }
 #line 1401 "pl0.tab.cc"
     break;
 
   case 27:
-#line 134 ".\\pl0.y"
+#line 134 "pl0.y"
                       {/*puts("proc_decls: proc_decl");*/ yyprocess_proc_decls_0("proc_decls", yylhs.value, {yystack_[0].value}); }
 #line 1407 "pl0.tab.cc"
     break;
 
   case 28:
-#line 135 ".\\pl0.y"
+#line 135 "pl0.y"
             {/*puts("proc_decls: func_decl");*/ yyprocess_proc_decls_1("proc_decls", yylhs.value, {yystack_[0].value}); }
 #line 1413 "pl0.tab.cc"
     break;
 
   case 29:
-#line 136 ".\\pl0.y"
+#line 136 "pl0.y"
                        {/*puts("proc_decls: proc_decl proc_decls");*/ yyprocess_proc_decls_2("proc_decls", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1419 "pl0.tab.cc"
     break;
 
   case 30:
-#line 137 ".\\pl0.y"
+#line 137 "pl0.y"
                        {/*puts("proc_decls: func_decl proc_decls");*/ yyprocess_proc_decls_3("proc_decls", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1425 "pl0.tab.cc"
     break;
 
   case 31:
-#line 139 ".\\pl0.y"
+#line 139 "pl0.y"
                                 {/*puts("func_decl: func_head subprogram");*/ yyprocess_func_decl_0("func_decl", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1431 "pl0.tab.cc"
     break;
 
   case 32:
-#line 141 ".\\pl0.y"
+#line 141 "pl0.y"
                                                                            {/*puts("func_head: function IDENTIFIER LPAREN opt_param_decl RPAREN COLON typename");*/ yyprocess_func_head_0("func_head", yylhs.value, {yystack_[6].value, yystack_[5].value, yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1437 "pl0.tab.cc"
     break;
 
   case 33:
-#line 142 ".\\pl0.y"
+#line 142 "pl0.y"
                                                    {/*puts("func_head: function IDENTIFIER LPAREN opt_param_decl RPAREN");*/ yyprocess_func_head_1("func_head", yylhs.value, {yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1443 "pl0.tab.cc"
     break;
 
   case 34:
-#line 144 ".\\pl0.y"
+#line 144 "pl0.y"
                                 {/*puts("proc_decl: proc_head subprogram");*/ yyprocess_proc_decl_0("proc_decl", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1449 "pl0.tab.cc"
     break;
 
   case 35:
-#line 146 ".\\pl0.y"
+#line 146 "pl0.y"
                                 {/*puts("proc_head: procedure IDENTIFIER");*/ yyprocess_proc_head_0("proc_head", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1455 "pl0.tab.cc"
     break;
 
   case 36:
-#line 148 ".\\pl0.y"
+#line 148 "pl0.y"
                 {/*puts("opt_param_decl: ");*/ yyprocess_opt_param_decl_0("opt_param_decl", yylhs.value, {}); }
 #line 1461 "pl0.tab.cc"
     break;
 
   case 37:
-#line 149 ".\\pl0.y"
+#line 149 "pl0.y"
              {/*puts("opt_param_decl: param_decl");*/ yyprocess_opt_param_decl_1("opt_param_decl", yylhs.value, {yystack_[0].value}); }
 #line 1467 "pl0.tab.cc"
     break;
 
   case 38:
-#line 151 ".\\pl0.y"
+#line 151 "pl0.y"
                                       {/*puts("param_decl: IDENTIFIER COLON typename");*/ yyprocess_param_decl_0("param_decl", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1473 "pl0.tab.cc"
     break;
 
   case 39:
-#line 152 ".\\pl0.y"
+#line 152 "pl0.y"
                  {/*puts("param_decl: COLON typename");*/ yyprocess_param_decl_1("param_decl", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1479 "pl0.tab.cc"
     break;
 
   case 40:
-#line 153 ".\\pl0.y"
+#line 153 "pl0.y"
                                              {/*puts("param_decl: IDENTIFIER COLON typename COMMA param_decl");*/ yyprocess_param_decl_2("param_decl", yylhs.value, {yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1485 "pl0.tab.cc"
     break;
 
   case 41:
-#line 154 ".\\pl0.y"
+#line 154 "pl0.y"
                                   {/*puts("param_decl: COLON typename COMMA param_decl");*/ yyprocess_param_decl_3("param_decl", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1491 "pl0.tab.cc"
     break;
 
   case 42:
-#line 156 ".\\pl0.y"
+#line 156 "pl0.y"
                   {/*puts("stmt: assign_stmt");*/ yyprocess_stmt_0("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1497 "pl0.tab.cc"
     break;
 
   case 43:
-#line 157 ".\\pl0.y"
+#line 157 "pl0.y"
             {/*puts("stmt: cond_stmt");*/ yyprocess_stmt_1("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1503 "pl0.tab.cc"
     break;
 
   case 44:
-#line 158 ".\\pl0.y"
+#line 158 "pl0.y"
             {/*puts("stmt: loop_stmt");*/ yyprocess_stmt_2("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1509 "pl0.tab.cc"
     break;
 
   case 45:
-#line 159 ".\\pl0.y"
+#line 159 "pl0.y"
                  {/*puts("stmt: proc_call_stmt");*/ yyprocess_stmt_3("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1515 "pl0.tab.cc"
     break;
 
   case 46:
-#line 160 ".\\pl0.y"
+#line 160 "pl0.y"
              {/*puts("stmt: compl_stmt");*/ yyprocess_stmt_4("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1521 "pl0.tab.cc"
     break;
 
   case 47:
-#line 161 ".\\pl0.y"
+#line 161 "pl0.y"
             {/*puts("stmt: expr_stmt");*/ yyprocess_stmt_5("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1527 "pl0.tab.cc"
     break;
 
   case 48:
-#line 162 ".\\pl0.y"
+#line 162 "pl0.y"
              {/*puts("stmt: empty_stmt");*/ yyprocess_stmt_6("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1533 "pl0.tab.cc"
     break;
 
   case 49:
-#line 163 ".\\pl0.y"
+#line 163 "pl0.y"
              {/*puts("stmt: break_stmt");*/ yyprocess_stmt_7("stmt", yylhs.value, {yystack_[0].value}); }
 #line 1539 "pl0.tab.cc"
     break;
 
   case 50:
-#line 165 ".\\pl0.y"
+#line 165 "pl0.y"
                                    {/*puts("assign_stmt: expr ASSIGN expr SEMI");*/ yyprocess_assign_stmt_0("assign_stmt", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1545 "pl0.tab.cc"
     break;
 
   case 51:
-#line 167 ".\\pl0.y"
+#line 167 "pl0.y"
                                 {/*puts("compl_stmt: begin opt_stmts end");*/ yyprocess_compl_stmt_0("compl_stmt", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1551 "pl0.tab.cc"
     break;
 
   case 52:
-#line 169 ".\\pl0.y"
+#line 169 "pl0.y"
            {/*puts("opt_stmts: ");*/ yyprocess_opt_stmts_0("opt_stmts", yylhs.value, {}); }
 #line 1557 "pl0.tab.cc"
     break;
 
   case 53:
-#line 170 ".\\pl0.y"
+#line 170 "pl0.y"
         {/*puts("opt_stmts: stmts");*/ yyprocess_opt_stmts_1("opt_stmts", yylhs.value, {yystack_[0].value}); }
 #line 1563 "pl0.tab.cc"
     break;
 
   case 54:
-#line 172 ".\\pl0.y"
+#line 172 "pl0.y"
             {/*puts("stmts: stmt");*/ yyprocess_stmts_0("stmts", yylhs.value, {yystack_[0].value}); }
 #line 1569 "pl0.tab.cc"
     break;
 
   case 55:
-#line 173 ".\\pl0.y"
+#line 173 "pl0.y"
              {/*puts("stmts: stmt stmts");*/ yyprocess_stmts_1("stmts", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1575 "pl0.tab.cc"
     break;
 
   case 56:
-#line 175 ".\\pl0.y"
+#line 175 "pl0.y"
                      {/*puts("expr_stmt: expr SEMI");*/ yyprocess_expr_stmt_0("expr_stmt", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1581 "pl0.tab.cc"
     break;
 
   case 57:
-#line 177 ".\\pl0.y"
+#line 177 "pl0.y"
                   {/*puts("expr: simple_expr");*/ yyprocess_expr_0("expr", yylhs.value, {yystack_[0].value}); }
 #line 1587 "pl0.tab.cc"
     break;
 
   case 58:
-#line 178 ".\\pl0.y"
+#line 178 "pl0.y"
                  {/*puts("expr: expr PLUS expr");*/ yyprocess_expr_1("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1593 "pl0.tab.cc"
     break;
 
   case 59:
-#line 179 ".\\pl0.y"
+#line 179 "pl0.y"
                   {/*puts("expr: expr MINUS expr");*/ yyprocess_expr_2("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1599 "pl0.tab.cc"
     break;
 
   case 60:
-#line 180 ".\\pl0.y"
+#line 180 "pl0.y"
                  {/*puts("expr: expr STAR expr");*/ yyprocess_expr_3("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1605 "pl0.tab.cc"
     break;
 
   case 61:
-#line 181 ".\\pl0.y"
+#line 181 "pl0.y"
                   {/*puts("expr: expr SLASH expr");*/ yyprocess_expr_4("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1611 "pl0.tab.cc"
     break;
 
   case 62:
-#line 182 ".\\pl0.y"
+#line 182 "pl0.y"
                 {/*puts("expr: expr div expr");*/ yyprocess_expr_5("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1617 "pl0.tab.cc"
     break;
 
   case 63:
-#line 183 ".\\pl0.y"
+#line 183 "pl0.y"
                  {/*puts("expr: expr MOD2 expr");*/ yyprocess_expr_6("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1623 "pl0.tab.cc"
     break;
 
   case 64:
-#line 184 ".\\pl0.y"
+#line 184 "pl0.y"
                 {/*puts("expr: expr and expr");*/ yyprocess_expr_7("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1629 "pl0.tab.cc"
     break;
 
   case 65:
-#line 185 ".\\pl0.y"
+#line 185 "pl0.y"
                {/*puts("expr: expr or expr");*/ yyprocess_expr_8("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1635 "pl0.tab.cc"
     break;
 
   case 66:
-#line 186 ".\\pl0.y"
+#line 186 "pl0.y"
                   {/*puts("expr: expr EQUAL expr");*/ yyprocess_expr_9("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1641 "pl0.tab.cc"
     break;
 
   case 67:
-#line 187 ".\\pl0.y"
+#line 187 "pl0.y"
                       {/*puts("expr: expr NOT_EQUAL expr");*/ yyprocess_expr_10("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1647 "pl0.tab.cc"
     break;
 
   case 68:
-#line 188 ".\\pl0.y"
+#line 188 "pl0.y"
                {/*puts("expr: expr LE expr");*/ yyprocess_expr_11("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1653 "pl0.tab.cc"
     break;
 
   case 69:
-#line 189 ".\\pl0.y"
+#line 189 "pl0.y"
                {/*puts("expr: expr GE expr");*/ yyprocess_expr_12("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1659 "pl0.tab.cc"
     break;
 
   case 70:
-#line 190 ".\\pl0.y"
+#line 190 "pl0.y"
                {/*puts("expr: expr LT expr");*/ yyprocess_expr_13("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1665 "pl0.tab.cc"
     break;
 
   case 71:
-#line 191 ".\\pl0.y"
+#line 191 "pl0.y"
                {/*puts("expr: expr GT expr");*/ yyprocess_expr_14("expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1671 "pl0.tab.cc"
     break;
 
   case 72:
-#line 193 ".\\pl0.y"
+#line 193 "pl0.y"
                         {/*puts("simple_expr: naive_expr");*/ yyprocess_simple_expr_0("simple_expr", yylhs.value, {yystack_[0].value}); }
 #line 1677 "pl0.tab.cc"
     break;
 
   case 73:
-#line 194 ".\\pl0.y"
+#line 194 "pl0.y"
                   {/*puts("simple_expr: not simple_expr");*/ yyprocess_simple_expr_1("simple_expr", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1683 "pl0.tab.cc"
     break;
 
   case 74:
-#line 195 ".\\pl0.y"
+#line 195 "pl0.y"
                       {/*puts("simple_expr: POINTER simple_expr");*/ yyprocess_simple_expr_2("simple_expr", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1689 "pl0.tab.cc"
     break;
 
   case 75:
-#line 196 ".\\pl0.y"
+#line 196 "pl0.y"
             {/*puts("simple_expr: PLUS expr");*/ yyprocess_simple_expr_3("simple_expr", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1695 "pl0.tab.cc"
     break;
 
   case 76:
-#line 197 ".\\pl0.y"
+#line 197 "pl0.y"
              {/*puts("simple_expr: MINUS expr");*/ yyprocess_simple_expr_4("simple_expr", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1701 "pl0.tab.cc"
     break;
 
   case 77:
-#line 198 ".\\pl0.y"
+#line 198 "pl0.y"
           {/*puts("simple_expr: AT expr");*/ yyprocess_simple_expr_5("simple_expr", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1707 "pl0.tab.cc"
     break;
 
   case 78:
-#line 200 ".\\pl0.y"
+#line 200 "pl0.y"
                       {/*puts("naive_expr: atom_expr");*/ yyprocess_naive_expr_0("naive_expr", yylhs.value, {yystack_[0].value}); }
 #line 1713 "pl0.tab.cc"
     break;
 
   case 79:
-#line 201 ".\\pl0.y"
+#line 201 "pl0.y"
                                           {/*puts("naive_expr: naive_expr LPAREN opt_param_list RPAREN");*/ yyprocess_naive_expr_1("naive_expr", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1719 "pl0.tab.cc"
     break;
 
   case 80:
-#line 202 ".\\pl0.y"
+#line 202 "pl0.y"
                                 {/*puts("naive_expr: naive_expr LBRACK expr RBRACK");*/ yyprocess_naive_expr_2("naive_expr", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1725 "pl0.tab.cc"
     break;
 
   case 81:
-#line 204 ".\\pl0.y"
+#line 204 "pl0.y"
                          {/*puts("atom_expr: const_literal");*/ yyprocess_atom_expr_0("atom_expr", yylhs.value, {yystack_[0].value}); }
 #line 1731 "pl0.tab.cc"
     break;
 
   case 82:
-#line 205 ".\\pl0.y"
+#line 205 "pl0.y"
                      {/*puts("atom_expr: LPAREN expr RPAREN");*/ yyprocess_atom_expr_1("atom_expr", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1737 "pl0.tab.cc"
     break;
 
   case 83:
-#line 206 ".\\pl0.y"
+#line 206 "pl0.y"
              {/*puts("atom_expr: IDENTIFIER");*/ yyprocess_atom_expr_2("atom_expr", yylhs.value, {yystack_[0].value}); }
 #line 1743 "pl0.tab.cc"
     break;
 
   case 84:
-#line 208 ".\\pl0.y"
+#line 208 "pl0.y"
                 {/*puts("opt_param_list: ");*/ yyprocess_opt_param_list_0("opt_param_list", yylhs.value, {}); }
 #line 1749 "pl0.tab.cc"
     break;
 
   case 85:
-#line 209 ".\\pl0.y"
+#line 209 "pl0.y"
              {/*puts("opt_param_list: param_list");*/ yyprocess_opt_param_list_1("opt_param_list", yylhs.value, {yystack_[0].value}); }
 #line 1755 "pl0.tab.cc"
     break;
 
   case 86:
-#line 211 ".\\pl0.y"
+#line 211 "pl0.y"
                  {/*puts("param_list: expr");*/ yyprocess_param_list_0("param_list", yylhs.value, {yystack_[0].value}); }
 #line 1761 "pl0.tab.cc"
     break;
 
   case 87:
-#line 212 ".\\pl0.y"
+#line 212 "pl0.y"
                         {/*puts("param_list: expr COMMA param_list");*/ yyprocess_param_list_1("param_list", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1767 "pl0.tab.cc"
     break;
 
   case 88:
-#line 214 ".\\pl0.y"
+#line 214 "pl0.y"
                              {/*puts("cond_stmt: if expr then stmt");*/ yyprocess_cond_stmt_0("cond_stmt", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1773 "pl0.tab.cc"
     break;
 
   case 89:
-#line 215 ".\\pl0.y"
+#line 215 "pl0.y"
                               {/*puts("cond_stmt: if expr then stmt else stmt");*/ yyprocess_cond_stmt_1("cond_stmt", yylhs.value, {yystack_[5].value, yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1779 "pl0.tab.cc"
     break;
 
   case 90:
-#line 217 ".\\pl0.y"
+#line 217 "pl0.y"
                                      {/*puts("proc_call_stmt: call IDENTIFIER SEMI");*/ yyprocess_proc_call_stmt_0("proc_call_stmt", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1785 "pl0.tab.cc"
     break;
 
   case 91:
-#line 219 ".\\pl0.y"
+#line 219 "pl0.y"
                       {/*puts("loop_stmt: while_stmt");*/ yyprocess_loop_stmt_0("loop_stmt", yylhs.value, {yystack_[0].value}); }
 #line 1791 "pl0.tab.cc"
     break;
 
   case 92:
-#line 220 ".\\pl0.y"
+#line 220 "pl0.y"
            {/*puts("loop_stmt: for_stmt");*/ yyprocess_loop_stmt_1("loop_stmt", yylhs.value, {yystack_[0].value}); }
 #line 1797 "pl0.tab.cc"
     break;
 
   case 93:
-#line 221 ".\\pl0.y"
+#line 221 "pl0.y"
               {/*puts("loop_stmt: repeat_stmt");*/ yyprocess_loop_stmt_2("loop_stmt", yylhs.value, {yystack_[0].value}); }
 #line 1803 "pl0.tab.cc"
     break;
 
   case 94:
-#line 223 ".\\pl0.y"
+#line 223 "pl0.y"
                                               {/*puts("repeat_stmt: repeat opt_stmts until expr SEMI");*/ yyprocess_repeat_stmt_0("repeat_stmt", yylhs.value, {yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1809 "pl0.tab.cc"
     break;
 
   case 95:
-#line 225 ".\\pl0.y"
+#line 225 "pl0.y"
                                {/*puts("while_stmt: while expr do stmt");*/ yyprocess_while_stmt_0("while_stmt", yylhs.value, {yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1815 "pl0.tab.cc"
     break;
 
   case 96:
-#line 227 ".\\pl0.y"
+#line 227 "pl0.y"
                                                      {/*puts("for_stmt: for IDENTIFIER ASSIGN expr to expr do stmt");*/ yyprocess_for_stmt_0("for_stmt", yylhs.value, {yystack_[7].value, yystack_[6].value, yystack_[5].value, yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1821 "pl0.tab.cc"
     break;
 
   case 97:
-#line 228 ".\\pl0.y"
+#line 228 "pl0.y"
                                                  {/*puts("for_stmt: for IDENTIFIER ASSIGN expr downto expr do stmt");*/ yyprocess_for_stmt_1("for_stmt", yylhs.value, {yystack_[7].value, yystack_[6].value, yystack_[5].value, yystack_[4].value, yystack_[3].value, yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1827 "pl0.tab.cc"
     break;
 
   case 98:
-#line 230 ".\\pl0.y"
+#line 230 "pl0.y"
                  {/*puts("empty_stmt: SEMI");*/ yyprocess_empty_stmt_0("empty_stmt", yylhs.value, {yystack_[0].value}); }
 #line 1833 "pl0.tab.cc"
     break;
 
   case 99:
-#line 232 ".\\pl0.y"
+#line 232 "pl0.y"
                        {/*puts("break_stmt: break SEMI");*/ yyprocess_break_stmt_0("break_stmt", yylhs.value, {yystack_[1].value, yystack_[0].value}); }
 #line 1839 "pl0.tab.cc"
     break;
 
   case 100:
-#line 233 ".\\pl0.y"
+#line 233 "pl0.y"
                      {/*puts("break_stmt: break NUM_INT SEMI");*/ yyprocess_break_stmt_1("break_stmt", yylhs.value, {yystack_[2].value, yystack_[1].value, yystack_[0].value}); }
 #line 1845 "pl0.tab.cc"
     break;
@@ -2385,7 +2385,7 @@ namespace yy {
 } // yy
 #line 2387 "pl0.tab.cc"
 
-#line 236 ".\\pl0.y"
+#line 236 "pl0.y"
 
 
 
@@ -2405,7 +2405,7 @@ namespace yy
   // Report an error to the user.
   auto parser::error (const std::string& msg) -> void
   {
-    std::cerr << msg << '\n';
+    std::cerr << '(' << linum << ", " << column << ") " << msg << '\n';
   }
 }
 

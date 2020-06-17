@@ -157,4 +157,12 @@ int getConst(Block* block, decltype(Block::consts)::value_type v);
 int getName(Block* block, std::string name);
 
 }
+
+class SyntaxError : public std::exception {
+public:
+	SyntaxError(std::string s, ASTNodeBase* node)
+		: std::exception((s + " (" + std::to_string(node->lino) + ", " + std::to_string(node->column) + ")").c_str())
+	{
+	}
+};
 #endif

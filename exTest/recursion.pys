@@ -1,0 +1,14 @@
+var n,number: int;
+procedure gcd
+	if n>1 then
+		begin
+			number := number * (n-1);
+ 			n := n - 1;
+			call gcd;
+		end
+begin
+	n := int(read());
+	number := n;
+	call gcd;
+	writeln(number);
+end.

@@ -98,7 +98,7 @@ std::shared_ptr<Type> buildTypeFromAST(ASTNodeBase* pnode)
 		}
 		else
 		{
-			throw std::logic_error("Unknown type: " + (pid)->name);
+			throw SyntaxError("Unknown type: " + (pid)->name, pid);
 		}
 	}
 	else if (auto pfunc = dynamic_cast<ASTFunctionType*>(pnode); pfunc)
@@ -137,12 +137,12 @@ std::shared_ptr<Type> buildTypeFromAST(ASTNodeBase* pnode)
 		}
 		else
 		{
-			throw std::logic_error(std::string("Unknown type ") + std::to_string(pconst->value.index()));
+			throw SyntaxError(std::string("Unknown type ") + std::to_string(pconst->value.index()), pconst);
 		}
 	}
 	else
 	{
-		throw std::logic_error(std::string("Unknown ASTType ") + typeid(*pnode).name());
+		throw SyntaxError(std::string("Unknown ASTType ") + typeid(*pnode).name(), pnode);
 	}
 
 	return ret;
@@ -182,7 +182,7 @@ std::shared_ptr<Block> buildBlockFromAST(std::shared_ptr<ASTNodeBase> pnode, Blo
 
 	auto psub = std::dynamic_pointer_cast<ASTSubprogram>(pnode);
 	if (!psub)
-		throw std::invalid_argument(std::string("Node should be ASTProgram or ASTSubProgram, but ") + typeid(*pnode).name() + " found");
+		throw SyntaxError(std::string("Node should be ASTProgram or ASTSubProgram, but ") + typeid(*pnode).name() + " found", pnode.get());
 
 	for (auto pdecl : psub->decls)
 	{
@@ -222,7 +222,7 @@ std::shared_ptr<Block> buildBlockFromAST(std::shared_ptr<ASTNodeBase> pnode, Blo
 		}
 		else
 		{
-			throw std::logic_error("Unknown decl");
+			throw SyntaxError("Unknown decl", pdecl.get());
 		}
 	}
 
@@ -246,7 +246,7 @@ void addVar(Block* block, std::shared_ptr<Variable> var, VarPos pos)
 {
 	if (block->var_map.count(var->name->name) != 0)
 	{
-		throw std::logic_error(std::string("Redefinition of ") + var->name->name);
+		throw SyntaxError(std::string("Redefinition of ") + var->name->name, var->name.get());
 	}
 
 	auto& vec = pos == VARIABLE_CELL ? block->cellvars : block->freevars;

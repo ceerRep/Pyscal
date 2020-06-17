@@ -1,0 +1,14 @@
+var i, j : int;
+begin
+	for i := 1 to 5 do
+	begin
+		for j := 1 to 5 do
+		begin
+			write(i);
+			writeln(j);
+			
+			if j = 3 then
+				break 2;
+		end
+	end
+end.

@@ -174,7 +174,7 @@ std::string toJSON(std::shared_ptr<TokenBase> ptb)
 
 	for (auto&& child : ptb->getChildren())
 		ss << toJSON(child) << ",";
-
+	
 	ss << "]\n}\n";
 
 	return ss.str();

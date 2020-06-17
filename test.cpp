@@ -50,7 +50,7 @@ std::string to_string(const std::variant<std::variant<std::monostate, int, doubl
 			return std::to_string(std::get<double>(s));
 
 		case 3:
-			return "\"" + std::get<std::string>(s) + "\"";
+			return "@(bytearray \"" + std::get<std::string>(s) + "\" \"utf-8\")";
 
 		default:
 			throw std::logic_error("Unknown type");
@@ -152,7 +152,7 @@ void naive(YYSTYPE s, char* fout)
 	}
 	catch (std::exception e)
 	{
-		std::cout << "!!!" << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "end" << std::endl;

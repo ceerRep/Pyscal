@@ -12,7 +12,7 @@ std::shared_ptr<Block::Type> resolveGlobalSymbol(std::string s)
 	return std::make_shared<Block::NullType>();
 }
 
-inline int _ = []() -> int{
+inline int _ = []() -> int {
 	globals["read"] = Block::buildTypeFromString("s(0");
 	globals["readln"] = Block::buildTypeFromString("s(0");
 	globals["int"] = Block::buildTypeFromString("*i(1");
@@ -20,6 +20,10 @@ inline int _ = []() -> int{
 	globals["string"] = Block::buildTypeFromString("*s(1");
 	globals["write"] = Block::buildTypeFromString("*n(1");
 	globals["writeln"] = Block::buildTypeFromString("*n(1");
+	globals["getscr"] = Block::buildTypeFromString("sis(2");
+	globals["setscr"] = Block::buildTypeFromString("sisn(3");
+	globals["strcpy"] = Block::buildTypeFromString("ss(1");
+	globals["len"] = Block::buildTypeFromString("*i(1");
 
 	globals["bytecode"] = Block::buildTypeFromString("*");
 	globals["None"] = Block::buildTypeFromString("*");

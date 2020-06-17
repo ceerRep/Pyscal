@@ -252,7 +252,7 @@ namespace yy
   // Report an error to the user.
   auto parser::error (const std::string& msg) -> void
   {
-    std::cerr << msg << '\n';
+    std::cerr << '(' << linum << ", " << column << ") " << msg << '\n';
   }
 }
 

@@ -1,0 +1,12 @@
+var a,b: int;
+procedure p
+	var a: int;
+	procedure q
+		a := int(read());
+	call q;
+procdure q
+	var a: int;
+	procdure p
+		a := int(read());
+	call p;
+call p;.

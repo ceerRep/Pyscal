@@ -1,0 +1,34 @@
+var a, b, res, tmp: int[1..20][1..20];
+var n, p, m: int;
+var i, j, k: int;
+begin
+	n := int(read());
+	p := int(read());
+	m := int(read());
+
+	for i := 1 to n do
+		for j := 1 to p do
+			a[i][j] := int(read());
+
+	for i := 1 to p do
+		for j := 1 to m do
+			b[i][j] := int(read());
+	
+	for i := 1 to n do
+		for j := 1 to m do
+			tmp[i][j] := 0;
+	
+	for i := 1 to n do
+		for j := 1 to p do
+			for k := 1 to m do
+				tmp[i][k] := tmp[i][k] + a[i][j] * b[j][k];
+	res := tmp;
+
+	for i := 1 to n do
+		for j := 1 to m do
+			if j = m then
+				writeln(res[i][j]);
+			else begin
+				write(res[i][j]);
+			end
+end.
